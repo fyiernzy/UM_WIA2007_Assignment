@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/img"
+    tools:context=".ForgotPassActivity">
+
+
+    <LinearLayout
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Forgot password?"
+            android:textColor="@color/black"
+            android:textSize="35sp" />
+
+        <TextView
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginTop="10dp"
+            android:text="Don’t worry! It happens. Please enter the email associated with your account."
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/inter"
+            android:text="Email address"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <EditText
+            android:id="@+id/forgotPass_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custom_edittext"
+            android:hint="Your email address"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/send_link_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Send Link"
+            android:textSize="16sp"
+            app:cornerRadius="14dp" />
+
+        <TextView
+            android:id="@+id/loginRedirectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="150dp"
+            android:fontFamily="@font/montserrat"
+            android:padding="8dp"
+            android:text="Remember password? Log in"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

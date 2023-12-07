@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".SignUpActivity">
+
+
+    <LinearLayout
+        android:layout_width="388dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Create account"
+            android:textColor="@color/black"
+            android:textSize="35sp" />
+
+        <TextView
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/inter"
+            android:text="Username"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <EditText
+            android:id="@+id/signup_username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custom_edittext"
+            android:hint="Your username"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/inter"
+            android:text="Email address"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <EditText
+            android:id="@+id/signup_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custom_edittext"
+            android:hint="Your email address"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/inter"
+            android:text="Password"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <EditText
+            android:id="@+id/signup_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custom_edittext"
+            android:hint="Your password"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/terms_privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:fontFamily="@font/montserrat"
+            android:padding="8dp"
+            android:text="I accept the terms and privacy policy"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/signup_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Sign Up"
+            android:textSize="16sp"
+            app:cornerRadius="14dp" />
+
+        <TextView
+            android:id="@+id/loginRedirectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/montserrat"
+            android:padding="8dp"
+            android:text="Already have an account? Log in"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
