@@ -11,6 +11,23 @@
 
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="73dp"
+            android:layout_height="44dp"
+            android:layout_alignParentStart="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="Back Button"
+            android:src="@drawable/baseline_arrow_back_24" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -28,7 +45,7 @@
         <TextView
             android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/inter"
             android:text="Username"
             android:textColor="@color/black"
@@ -48,7 +65,7 @@
         <TextView
             android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/inter"
             android:text="Email address"
             android:textColor="@color/black"
@@ -68,7 +85,7 @@
         <TextView
             android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/inter"
             android:text="Password"
             android:textColor="@color/black"
@@ -86,37 +103,117 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/terms_privacy"
-            android:layout_width="wrap_content"
+            android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/montserrat"
-            android:padding="8dp"
-            android:text="I accept the terms and privacy policy"
-            android:textSize="14sp" />
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter"
+            android:text="Gender"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkBoxMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:button="@drawable/baseline_check_circle_24"
+                android:checked="false"
+                android:text="  Male" />
+
+            <CheckBox
+                android:id="@+id/checkBoxFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/checkBoxMale"
+                android:layout_marginTop="5dp"
+                android:text="  Female"
+                android:layout_marginLeft="70dp"
+                android:button="@drawable/baseline_check_circle_24"
+                android:checked="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/remember_checkbox"
+                android:layout_width="38dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/terms_privacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/montserrat"
+                android:padding="8dp"
+                android:text="I accept the terms and privacy policy"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_button_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/shadow"
+            android:fontFamily="@font/inter_semibold"
+            android:textSize="16sp"
+            app:cornerRadius="14dp" />
 
         <Button
             android:id="@+id/signup_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="-63.5dp"
             android:backgroundTint="@color/orange"
             android:fontFamily="@font/inter_semibold"
             android:text="Sign Up"
             android:textSize="16sp"
             app:cornerRadius="14dp" />
 
-        <TextView
-            android:id="@+id/loginRedirectText"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginTop="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:fontFamily="@font/montserrat"
-            android:padding="8dp"
-            android:text="Already have an account? Log in"
-            android:textSize="14sp" />
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/haveAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat"
+                android:padding="3dp"
+                android:text="Already have an account?"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/loginRedirectText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat"
+                android:padding="3dp"
+                android:text="Log in"
+                android:textColor="#00AFFF"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
 

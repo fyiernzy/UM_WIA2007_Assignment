@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView signupRedirectText;
     TextView forgotPass;
     private Button loginButton;
+    private ImageButton backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         loginEmail = findViewById(R.id.login_email);
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
+        backButton = findViewById(R.id.back_button);
         signupRedirectText = findViewById(R.id.signUpRedirectText);
         forgotPass = findViewById(R.id.forget_password);
 
@@ -69,6 +72,13 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     loginEmail .setError("Please enter valid email");
                 }
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
 
