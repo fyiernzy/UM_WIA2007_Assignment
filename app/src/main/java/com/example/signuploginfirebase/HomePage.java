@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class UserPage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
 
     private Button logoutButton;
 
@@ -22,8 +22,9 @@ public class UserPage extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(UserPage.this, "Logout Successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(UserPage.this, LoginActivity.class));
+                Toast.makeText(HomePage.this, "Logout Successful", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomePage.this, LoginActivity.class));
+                finish();
             }
         });
     }

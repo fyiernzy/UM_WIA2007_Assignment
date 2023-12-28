@@ -12,14 +12,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/back_button"
             android:layout_width="73dp"
-            android:layout_height="48dp"
+            android:layout_height="45dp"
             android:layout_alignParentStart="true"
             android:background="?android:attr/selectableItemBackground"
             android:contentDescription="Back Button"
@@ -76,7 +76,7 @@
             android:id="@+id/send_link_button_shadow"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="70dp"
             android:backgroundTint="@color/shadow"
             android:fontFamily="@font/inter_semibold"
             android:textSize="16sp"
@@ -96,7 +96,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="120dp"
             android:layout_gravity="center"
             android:orientation="horizontal">
 
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat"
-                android:padding="8dp"
+                android:padding="5dp"
                 android:text="Remember password?"
                 android:textSize="14sp" />
 
@@ -116,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat"
-                android:padding="8dp"
+                android:padding="5dp"
                 android:text="Log in"
                 android:textColor="#00AFFF"
                 android:textSize="14sp" />
@@ -124,8 +124,5 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
-
-
 </LinearLayout>

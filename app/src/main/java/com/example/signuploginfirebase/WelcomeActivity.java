@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     private Button firstloginButton, firstsignupButton;
 
@@ -23,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
         firstloginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
             }
         });
 
         firstsignupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, SignUpActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
             }
         });
     }

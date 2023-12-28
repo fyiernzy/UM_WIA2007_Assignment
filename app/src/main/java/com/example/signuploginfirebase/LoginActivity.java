@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -18,8 +21,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.regex.Pattern;
-
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView forgotPass;
     private Button loginButton;
     private ImageButton backButton;
+    private ImageView visibilityIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,23 +56,24 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(LoginActivity.this, UserPage.class));
+                                startActivity(new Intent(LoginActivity.this, HomePage.class));
+                                finish();
 
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login Failed. Please ensure the email and password is correct.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     } else {
-                        loginPassword.setError("Password cannot be empty");
+                        loginPassword.setError("Password cannot be empty.");
                     }
                 } else if (email.isEmpty()){
-                    loginEmail.setError("Email cannot be empty");
+                    loginEmail.setError("Email cannot be empty.");
 
                 } else {
-                    loginEmail .setError("Please enter valid email");
+                    loginEmail .setError("Please enter valid email.");
                 }
             }
         });

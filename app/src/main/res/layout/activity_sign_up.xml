@@ -35,17 +35,38 @@
         android:padding="24dp">
 
         <TextView
-            android:layout_width="305dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
+            android:layout_marginTop="-10dp"
             android:text="Create account"
             android:textColor="@color/black"
-            android:textSize="35sp" />
+            android:textSize="33sp" />
 
         <TextView
             android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/inter"
+            android:text="Full name"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <EditText
+            android:id="@+id/signup_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custom_edittext"
+            android:hint="Your name"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/inter"
             android:text="Username"
             android:textColor="@color/black"
@@ -55,7 +76,7 @@
         <EditText
             android:id="@+id/signup_username"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/custom_edittext"
             android:hint="Your username"
@@ -65,7 +86,7 @@
         <TextView
             android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/inter"
             android:text="Email address"
             android:textColor="@color/black"
@@ -75,7 +96,7 @@
         <EditText
             android:id="@+id/signup_email"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/custom_edittext"
             android:hint="Your email address"
@@ -85,63 +106,57 @@
         <TextView
             android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/inter"
             android:text="Password"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
-
         <EditText
             android:id="@+id/signup_password"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/custom_edittext"
             android:hint="Your password"
             android:padding="8dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/inter"
             android:text="Gender"
             android:textColor="@color/black"
             android:textSize="16sp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+
+        <RadioGroup
+            android:id="@+id/radioGroupGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/checkBoxMale"
+            <RadioButton
+                android:id="@+id/radioButtonMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:button="@drawable/baseline_check_circle_24"
-                android:checked="false"
-                android:text="  Male" />
+                android:text="Male" />
 
-            <CheckBox
-                android:id="@+id/checkBoxFemale"
+            <RadioButton
+                android:id="@+id/radioButtonFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/checkBoxMale"
-                android:layout_marginTop="5dp"
-                android:text="  Female"
-                android:layout_marginLeft="70dp"
-                android:button="@drawable/baseline_check_circle_24"
-                android:checked="false"/>
+                android:layout_marginStart="20dp"
+                android:text="Female" />
+        </RadioGroup>
 
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <CheckBox
@@ -149,7 +164,7 @@
                 android:layout_width="38dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:padding="8dp" />
+                android:padding="3dp" />
 
             <TextView
                 android:id="@+id/terms_privacy"
@@ -157,8 +172,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:fontFamily="@font/montserrat"
-                android:padding="8dp"
-                android:text="I accept the terms and privacy policy"
+                android:padding="6dp"
+                android:text="I accept the terms and privacy policy."
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -167,7 +182,7 @@
             android:id="@+id/login_button_shadow"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/shadow"
             android:fontFamily="@font/inter_semibold"
             android:textSize="16sp"
@@ -177,7 +192,7 @@
             android:id="@+id/signup_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="-63.5dp"
+            android:layout_marginTop="-63dp"
             android:backgroundTint="@color/orange"
             android:fontFamily="@font/inter_semibold"
             android:text="Sign Up"
@@ -187,7 +202,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="15dp"
             android:layout_gravity="center"
             android:orientation="horizontal">
 
@@ -211,7 +226,6 @@
                 android:text="Log in"
                 android:textColor="#00AFFF"
                 android:textSize="14sp" />
-
 
         </LinearLayout>
 

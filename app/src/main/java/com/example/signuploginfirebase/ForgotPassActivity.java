@@ -58,7 +58,7 @@ public class ForgotPassActivity extends AppCompatActivity {
                 String userEmail = forgotPassEmail.getText().toString();
 
                 if(TextUtils.isEmpty(userEmail) && !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
-                    Toast.makeText(ForgotPassActivity.this, "Enter your registered email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgotPassActivity.this, "Enter your registered email.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -66,10 +66,11 @@ public class ForgotPassActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(ForgotPassActivity.this, "Check your email", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ForgotPassActivity.this, "Please check your email for the link.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(ForgotPassActivity.this, LoginActivity.class));
+                            finish();
                         } else {
-                            Toast.makeText(ForgotPassActivity.this, "Unable to send, failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ForgotPassActivity.this, "The link couldn't be sent. Please check your email address for accuracy and ensure your inbox is accessible. If the issue persists, try resending or contact support.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
