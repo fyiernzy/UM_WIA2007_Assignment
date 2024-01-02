@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "71086404603",
+    "project_id": "betterher-a6aef",
+    "storage_bucket": "betterher-a6aef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71086404603:android:9811aadd9b37cb61a8515e",
+        "android_client_info": {
+          "package_name": "com.example.betterher"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2NDUcp9aHa2_hzn9edufixue8EOg-fhw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
