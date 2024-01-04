@@ -23,6 +23,13 @@ public class QuestionRepository {
     private String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private OnResultLoad onResultLoad;
 
+    public QuestionRepository(OnQuestionLoad onQuestionLoad, OnResultAdded onResultAdded, OnResultLoad onResultLoad) {
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        this.onQuestionLoad = onQuestionLoad;
+        this.onResultAdded = onResultAdded;
+        this.onResultLoad = onResultLoad;
+    }
+
     public void getResults() {
         firebaseFirestore.collection("Quiz").document(quizId)
                 .collection("results").document(currentUserId)
@@ -33,8 +40,9 @@ public class QuestionRepository {
                             resultMap.put("correct", task.getResult().getLong("correct"));
                             resultMap.put("wrong", task.getResult().getLong("wrong"));
                             resultMap.put("notAnswered", task.getResult().getLong("notAnswered"));
+                            onResultLoad.onResultLoad(resultMap);
                         } else {
-
+                            onResultLoad.onError(task.getException());
                         }
                     }
                 });
@@ -57,12 +65,6 @@ public class QuestionRepository {
 
     public void setQuizId(String quizId) {
         this.quizId = quizId;
-    }
-
-    public QuestionRepository(OnQuestionLoad onQuestionLoad, OnResultAdded onResultAdded) {
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        this.onQuestionLoad = onQuestionLoad;
-        this.onResultAdded = onResultAdded;
     }
 
     public void getQuestions() {

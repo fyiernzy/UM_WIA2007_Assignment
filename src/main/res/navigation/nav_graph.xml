@@ -35,8 +35,20 @@
             android:id="@+id/action_signInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_signInFragment_to_listFragment"
+            android:id="@+id/action_signInFragment_to_quizHomeFragment"
+            app:destination="@id/quizHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizHomeFragment"
+        android:name="com.example.betterher.views.QuizHomeFragment"
+        android:label="fragment_quiz_home"
+        tools:layout="@layout/fragment_quiz_home" >
+        <action
+            android:id="@+id/action_quizHomeFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_quizHomeFragment_to_revisionListFragment"
+            app:destination="@id/revisionListFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -85,8 +97,51 @@
         android:name="com.example.betterher.views.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="quizId"
+            app:argType="string"
+            android:defaultValue="null" />
         <action
-            android:id="@+id/action_resultFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            android:id="@+id/action_resultFragment_to_quizHomeFragment"
+            app:destination="@id/quizHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/revisionDetailFragment"
+        android:name="com.example.betterher.views.RevisionDetailFragment"
+        android:label="fragment_revision_detail"
+        tools:layout="@layout/fragment_revision_detail" >
+        <action
+            android:id="@+id/action_revisionDetailFragment_to_revisionFragment"
+            app:destination="@id/revisionFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/revisionListFragment"
+        android:name="com.example.betterher.views.RevisionListFragment"
+        android:label="fragment_revision_list"
+        tools:layout="@layout/fragment_revision_list" >
+        <action
+            android:id="@+id/action_revisionListFragment_to_revisionDetailFragment"
+            app:destination="@id/revisionDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/revisionFragment"
+        android:name="com.example.betterher.views.RevisionFragment"
+        android:label="fragment_revision"
+        tools:layout="@layout/fragment_revision" >
+        <argument
+            android:name="quizId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="totalQuesCount"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_revisionFragment_to_revisionListFragment"
+            app:destination="@id/revisionListFragment" />
     </fragment>
 </navigation>

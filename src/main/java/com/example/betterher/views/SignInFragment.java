@@ -66,7 +66,7 @@ public class SignInFragment extends Fragment {
                         @Override
                         public void onChanged(FirebaseUser firebaseUser) {
                             if (firebaseUser != null) {
-                                navController.navigate(R.id.action_signInFragment_to_listFragment);
+                                navController.navigate(R.id.action_signInFragment_to_quizHomeFragment);
                             }
                         }
                     });

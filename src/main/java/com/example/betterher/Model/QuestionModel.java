@@ -7,6 +7,16 @@ public class QuestionModel {
     private String questionId;
     private String answer, question, option_a, option_b, option_c;
     private long timer;
+    private String explanation;
+    private String revision_card;
+
+    public String getExplanation() {
+        return explanation;
+    }
+
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
+    }
 
     public String getQuestionId() {
         return questionId;
@@ -64,9 +74,17 @@ public class QuestionModel {
         this.timer = timer;
     }
 
+    public String getRevision_card() {
+        return revision_card;
+    }
+
+    public void setRevision_card(String revision_card) {
+        this.revision_card = revision_card;
+    }
+
     public QuestionModel() {}
 
-    public QuestionModel(String questionId, String answer, String question, String option_a, String option_b, String option_c, long timer) {
+    public QuestionModel(String questionId, String answer, String question, String option_a, String option_b, String option_c, long timer, String revision_card) {
         this.questionId = questionId;
         this.answer = answer;
         this.question = question;
@@ -74,5 +92,6 @@ public class QuestionModel {
         this.option_b = option_b;
         this.option_c = option_c;
         this.timer = timer;
+        this.revision_card = revision_card;
     }
 }

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.ListFragment">
-
+    tools:context=".views.RevisionListFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -24,7 +23,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Select Quiz"
+        android:text="Select Topic To Revise"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
