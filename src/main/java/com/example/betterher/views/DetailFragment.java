@@ -83,7 +83,7 @@ public class DetailFragment extends Fragment {
                     public void run() {
                         progressBar.setVisibility(View.GONE);
                     }
-                }, 2000);
+                }, 1000);
 
                 totalQuesCount = quiz.getQuestions();
                 quizId = quiz.getQuizId();

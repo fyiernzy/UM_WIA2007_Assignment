@@ -108,7 +108,7 @@ public class RevisionFragment extends Fragment implements View.OnClickListener {
                     public void run() {
                         progressBar.setVisibility(View.GONE);
                     }
-                }, 2000);
+                }, 1000);
             }
         });
     }
