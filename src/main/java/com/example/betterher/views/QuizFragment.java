@@ -120,7 +120,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         viewModel.getQuestionMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuestionModel>>() {
             @Override
             public void onChanged(List<QuestionModel> questionModels) {
-                questionTv.setText(String.valueOf(currentQuesNo) + ") " + questionModels.get(i -1).getQuestion());
+                questionTv.setText(questionModels.get(i -1).getQuestion());
                 option1Btn.setText(questionModels.get(i-1).getOption_a());
                 option2Btn.setText(questionModels.get(i-1).getOption_b());
                 option3Btn.setText(questionModels.get(i-1).getOption_c());
@@ -157,6 +157,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             public void onFinish() {
                 canAnswer = false;
                 ansFeedBackTv.setText("Times up!! No answer selected");
+                showCorrectOption(answer);
                 notAnswered++;
                 showNextBtn();
             }
