@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img"
-    tools:context=".WelcomeActivity">
+    tools:context=".Authentication.WelcomeActivity">
 
 
     <TextView
@@ -36,7 +36,8 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+        android:layout_width="378dp"
+        android:layout_marginStart="5dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="208dp"
         android:fontFamily="@font/inter"
