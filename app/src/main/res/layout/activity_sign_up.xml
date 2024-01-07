@@ -7,7 +7,7 @@
     android:background="@drawable/img"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".SignUpActivity">
+    tools:context=".Authentication.SignUpActivity">
 
 
     <LinearLayout
@@ -38,7 +38,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
-            android:layout_marginTop="-10dp"
             android:text="Create account"
             android:textColor="@color/black"
             android:textSize="33sp" />
@@ -120,7 +119,11 @@
             android:background="@drawable/custom_edittext"
             android:hint="Your password"
             android:padding="8dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:drawableRight="@drawable/baseline_visibility_off_24"
+            android:inputType="textPassword"
+            android:paddingRight="10dp"
+            android:longClickable="false"/>
 
         <TextView
             android:layout_width="305dp"

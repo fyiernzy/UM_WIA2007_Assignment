@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@drawable/img"
-    tools:context=".LoginActivity">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:context=".Authentication.LoginActivity">
 
 
     <LinearLayout
@@ -27,7 +27,6 @@
             android:src="@drawable/baseline_arrow_back_24" />
 
     </LinearLayout>
-
 
 
     <LinearLayout
@@ -62,20 +61,19 @@
             android:layout_height="50dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/custom_edittext"
-            android:hint="Your email address"
             android:padding="8dp"
+            android:hint="Your email address"
             android:textColor="@color/black" />
 
         <TextView
+            android:id="@+id/password_text"
             android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/inter"
             android:text="Password"
-            android:id="@+id/password_text"
             android:textColor="@color/black"
             android:textSize="16sp" />
-
 
         <EditText
             android:id="@+id/login_password"
@@ -83,9 +81,13 @@
             android:layout_height="50dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/custom_edittext"
-            android:hint="Your password"
             android:padding="8dp"
-            android:textColor="@color/black"/>
+            android:hint="Your password"
+            android:textColor="@color/black"
+            android:drawableRight="@drawable/baseline_visibility_off_24"
+            android:inputType="textPassword"
+            android:paddingRight="10dp"
+            android:longClickable="false"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,16 +111,13 @@
                 android:padding="8dp"
                 android:text="Remember me"
                 android:textSize="14sp" />
-
         </LinearLayout>
-
-
 
         <Button
             android:id="@+id/login_button_shadow"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="80dp"
             android:backgroundTint="@color/shadow"
             android:fontFamily="@font/inter_semibold"
             android:textSize="16sp"
@@ -143,15 +142,15 @@
             android:layout_gravity="right"
             android:fontFamily="@font/montserrat"
             android:padding="8dp"
-            android:textColor="#00AFFF"
             android:text="Forgot password?"
+            android:textColor="#00AFFF"
             android:textSize="14sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:layout_marginTop="80dp"
             android:layout_gravity="center"
+            android:layout_marginTop="60dp"
             android:orientation="horizontal">
 
             <TextView
