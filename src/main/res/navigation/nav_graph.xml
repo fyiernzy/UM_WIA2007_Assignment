@@ -45,10 +45,14 @@
         tools:layout="@layout/fragment_quiz_home" >
         <action
             android:id="@+id/action_quizHomeFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out" />
         <action
             android:id="@+id/action_quizHomeFragment_to_revisionListFragment"
-            app:destination="@id/revisionListFragment" />
+            app:destination="@id/revisionListFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -57,7 +61,9 @@
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -66,7 +72,9 @@
         tools:layout="@layout/fragment_detail" >
         <action
             android:id="@+id/action_detailFragment_to_quizFragment"
-            app:destination="@id/quizFragment" />
+            app:destination="@id/quizFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out" />
         <argument
             android:name="position"
             app:argType="integer"
@@ -79,7 +87,9 @@
         tools:layout="@layout/fragment_quiz" >
         <action
             android:id="@+id/action_quizFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/resultFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out" />
         <argument
             android:name="quizId"
             app:argType="string"
@@ -90,7 +100,9 @@
             android:defaultValue="0L" />
         <action
             android:id="@+id/action_quizFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/exit_slide_in"
+            app:exitAnim="@anim/exit_slide_out" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -103,7 +115,9 @@
             android:defaultValue="null" />
         <action
             android:id="@+id/action_resultFragment_to_quizHomeFragment"
-            app:destination="@id/quizHomeFragment" />
+            app:destination="@id/quizHomeFragment"
+            app:enterAnim="@anim/exit_slide_in"
+            app:exitAnim="@anim/exit_slide_out" />
     </fragment>
     <fragment
         android:id="@+id/revisionDetailFragment"
@@ -112,7 +126,9 @@
         tools:layout="@layout/fragment_revision_detail" >
         <action
             android:id="@+id/action_revisionDetailFragment_to_revisionFragment"
-            app:destination="@id/revisionFragment" />
+            app:destination="@id/revisionFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out" />
         <argument
             android:name="position"
             app:argType="integer"
@@ -125,7 +141,9 @@
         tools:layout="@layout/fragment_revision_list" >
         <action
             android:id="@+id/action_revisionListFragment_to_revisionDetailFragment"
-            app:destination="@id/revisionDetailFragment" />
+            app:destination="@id/revisionDetailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out" />
     </fragment>
     <fragment
         android:id="@+id/revisionFragment"
@@ -142,6 +160,8 @@
             android:defaultValue="0L" />
         <action
             android:id="@+id/action_revisionFragment_to_revisionListFragment"
-            app:destination="@id/revisionListFragment" />
+            app:destination="@id/revisionListFragment"
+            app:enterAnim="@anim/exit_slide_in"
+            app:exitAnim="@anim/exit_slide_out" />
     </fragment>
 </navigation>
