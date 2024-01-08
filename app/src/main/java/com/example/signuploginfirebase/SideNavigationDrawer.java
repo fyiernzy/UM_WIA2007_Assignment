@@ -129,7 +129,7 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
         } else if (itemId == R.id.nav_forum) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ForumFragment()).commit();
         } else if (itemId == R.id.nav_safety_support) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ForumFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Safety_Support_Fragment()).commit();
         } else if (itemId == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
         } else if (itemId == R.id.nav_about) {
