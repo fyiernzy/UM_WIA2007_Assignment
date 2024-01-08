@@ -120,6 +120,7 @@ public class RevisionFragment extends Fragment implements View.OnClickListener {
                 // Perform a fragment transaction to navigate to RevisionListFragment
                 RevisionListFragment revisionListFragment = new RevisionListFragment();
                 FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
                 transaction.replace(R.id.fragment_container, revisionListFragment); // Replace with the appropriate layout container ID
                 transaction.addToBackStack(null); // Optional: add transaction to the back stack
                 transaction.commit();

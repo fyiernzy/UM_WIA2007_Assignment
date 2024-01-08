@@ -78,6 +78,7 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
         detailFragment.setArguments(args);
 
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
         transaction.replace(R.id.fragment_container, detailFragment);
         transaction.addToBackStack(null);
         transaction.commit();

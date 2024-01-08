@@ -90,6 +90,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 Fragment listFragment = new ListFragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
                 transaction.replace(R.id.fragment_container, listFragment); // R.id.fragment_container is the id of the layout container where the fragment will be placed
                 transaction.addToBackStack(null); // Optional: add transaction to the back stack
                 transaction.commit();
@@ -123,7 +124,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         viewModel.getQuestionMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuestionModel>>() {
             @Override
             public void onChanged(List<QuestionModel> questionModels) {
-                questionTv.setText(questionModels.get(i -1).getQuestion());
+                questionTv.setText(questionModels.get(i-1).getQuestion());
                 option1Btn.setText(questionModels.get(i-1).getOption_a());
                 option2Btn.setText(questionModels.get(i-1).getOption_b());
                 option3Btn.setText(questionModels.get(i-1).getOption_c());
@@ -132,7 +133,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
                 questionNumberTv.setText(String.valueOf(currentQuesNo));
                 startTimer();
-
             }
         });
 
@@ -225,6 +225,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         resultFragment.setArguments(args);
 
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
         transaction.replace(R.id.fragment_container, resultFragment);
         transaction.addToBackStack(null);
         transaction.commit();
@@ -236,23 +237,34 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             String selectedOption = selectedButton.getText().toString();
             String correctOption = answer;
 
-            if (selectedOption.equals(correctOption)) {
-                // Correct answer
-                selectedButton.setBackground(ContextCompat.getDrawable(getContext(), R.color.green));
-                correctAnswer++;
-            } else {
-                // Wrong answer
-                selectedButton.setBackground(ContextCompat.getDrawable(getContext(), R.color.red));
-                showCorrectOption(correctOption);
-                wrongAnswer++;
-            }
+            boolean isCorrect = selectedOption.equals(correctOption);
 
-            // Display the explanation
+            // Update UI based on correctness
+            updateUIForAnswerVerification(selectedButton, correctOption, isCorrect);
+
+            // Display the explanation after updating UI
             ansFeedBackTv.setText(viewModel.getQuestionMutableLiveData().getValue().get(currentQuesNo - 1).getExplanation());
+            ansFeedBackTv.setVisibility(View.VISIBLE);
+
+            // Ensure correct answer highlighting is done after updating the explanation
+            if (!isCorrect) {
+                showCorrectOption(correctOption);
+            }
 
             showNextBtn();
         }
         canAnswer = false;
+    }
+
+    private void updateUIForAnswerVerification(Button selectedButton, String correctOption, boolean isCorrect) {
+        if (isCorrect) {
+            // Correct answer
+            selectedButton.setBackground(ContextCompat.getDrawable(getContext(), R.color.green));
+            correctAnswer++;
+        } else {
+            // Wrong answer
+            selectedButton.setBackground(ContextCompat.getDrawable(getContext(), R.color.red));
+        }
     }
 
     private void showCorrectOption(String correctOption) {

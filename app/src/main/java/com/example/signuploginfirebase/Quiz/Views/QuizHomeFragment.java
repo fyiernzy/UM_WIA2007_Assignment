@@ -49,6 +49,7 @@ public class QuizHomeFragment extends Fragment {
             public void onClick(View v) {
                 Fragment listFragment = new ListFragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
                 transaction.replace(R.id.fragment_container, listFragment); // R.id.fragment_container is the id of the layout container where the fragment will be placed
                 transaction.addToBackStack(null); // Optional: add transaction to the back stack
                 transaction.commit();
@@ -60,6 +61,7 @@ public class QuizHomeFragment extends Fragment {
             public void onClick(View v) {
                 Fragment revisionFragment = new RevisionListFragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
                 transaction.replace(R.id.fragment_container, revisionFragment); // Replace with the appropriate revision fragment
                 transaction.addToBackStack(null); // Optional: add transaction to the back stack
                 transaction.commit();

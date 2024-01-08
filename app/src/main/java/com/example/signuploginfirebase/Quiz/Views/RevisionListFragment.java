@@ -68,6 +68,7 @@ public class RevisionListFragment extends Fragment implements QuizListAdapter.On
         revisionDetailFragment.setArguments(args);
 
         FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
         transaction.replace(R.id.fragment_container, revisionDetailFragment);
         transaction.addToBackStack(null);
         transaction.commit();

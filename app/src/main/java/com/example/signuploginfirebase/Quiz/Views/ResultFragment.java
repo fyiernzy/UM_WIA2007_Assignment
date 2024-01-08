@@ -99,6 +99,7 @@ public class ResultFragment extends Fragment {
         Fragment quizHomeFragment = new QuizHomeFragment();
 
         FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
         transaction.replace(R.id.fragment_container, quizHomeFragment);
         transaction.addToBackStack(null);
         transaction.commit();

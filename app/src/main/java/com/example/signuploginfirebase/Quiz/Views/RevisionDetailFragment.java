@@ -93,6 +93,7 @@ public class RevisionDetailFragment extends Fragment {
 
                 // Perform fragment transaction to navigate to QuizFragment
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
                 transaction.replace(R.id.fragment_container, revisionFragment); // R.id.fragment_container is the id of the layout container where the fragment will be placed
                 transaction.addToBackStack(null); // Optional: add transaction to the back stack
                 transaction.commit();
