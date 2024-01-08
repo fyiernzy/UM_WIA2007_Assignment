@@ -20,15 +20,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.signuploginfirebase.Authentication.LoginActivity;
+import com.example.signuploginfirebase.Quiz.Views.QuizHomeFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.MetadataChanges;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import javax.annotation.Nonnull;
 
@@ -79,7 +77,7 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new QuizFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new QuizHomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_quiz);
 
             // Set the title dynamically
@@ -123,11 +121,11 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
         if (itemId == R.id.nav_profile) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserProfileFragment()).commit();
         } else if (itemId == R.id.nav_quiz) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new QuizFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new QuizHomeFragment()).commit();
         } else if (itemId == R.id.nav_info_hub) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoHubFragment()).commit();
         } else if (itemId == R.id.nav_forum) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ForumFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Safety_Support_Fragment()).commit();
         } else if (itemId == R.id.nav_safety_support) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Safety_Support_Fragment()).commit();
         } else if (itemId == R.id.nav_settings) {
