@@ -264,6 +264,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         } else {
             // Wrong answer
             selectedButton.setBackground(ContextCompat.getDrawable(getContext(), R.color.red));
+            wrongAnswer++;
         }
     }
 
