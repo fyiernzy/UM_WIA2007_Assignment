@@ -1,4 +1,4 @@
-package com.example.swipablecardtest.informationhub;
+package com.example.betterher.informationhub;
 
 public class Content {
     private String author;
@@ -7,10 +7,13 @@ public class Content {
     private String imageUrl;
     private String url;
     private String field;
+    private boolean isLast = false;
     public Content() {
     }
 
     // Constructor with all fields
+
+
     public Content(String author, String title, String type, String imageUrl, String url, String field) {
         this.author = author;
         this.title = title;
@@ -81,4 +84,13 @@ public class Content {
                 url.equals(content.url) &&
                 field.equals(content.field);
     }
+
+    public boolean isLast() {
+        return isLast;
+    }
+
+    public void setIsLast(boolean isLast) {
+        this.isLast = isLast;
+    }
+
 }

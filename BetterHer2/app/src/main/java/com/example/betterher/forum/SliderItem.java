@@ -1,4 +1,4 @@
-package com.example.swipablecardtest.forum;
+package com.example.betterher.forum;
 
 public class SliderItem {
     private String imageUrl;

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF"/> <!-- White background -->
+
+    <!-- Define the border properties -->
+    <stroke
+        android:width="1dp"
+        android:color="#E7E7E7"/> <!-- Light grey border for contrast -->
+
+    <!-- Optional: Customize the corner radius -->
+    <corners android:radius="4dp"/> <!-- Slightly rounded corners -->
+
+    <!-- Optional: Add padding inside the shape -->
+    <padding
+        android:left="12dp"
+        android:top="12dp"
+        android:right="12dp"
+        android:bottom="12dp"/> <!-- Padding to match the EditText padding -->
+</shape>

@@ -1,4 +1,4 @@
-package com.example.swipablecardtest.forum;
+package com.example.betterher.forum;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.example.swipablecardtest.R;
+import com.example.betterher.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

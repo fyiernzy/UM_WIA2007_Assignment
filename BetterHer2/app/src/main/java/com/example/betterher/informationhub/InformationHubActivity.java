@@ -1,12 +1,13 @@
-package com.example.swipablecardtest.informationhub;
+package com.example.betterher.informationhub;
 
 import android.os.Bundle;
 import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.swipablecardtest.R;
+import com.example.betterher.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -17,6 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class InformationHubActivity extends AppCompatActivity {
 
     private SectionListAdapter sectionListAdapter;
+    private RecyclerView rvInformationHub;
     private List<Section> allSections;
 
     @Override
@@ -26,7 +28,7 @@ public class InformationHubActivity extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        RecyclerView rvInformationHub = findViewById(R.id.rvInformationHub);
+        rvInformationHub = findViewById(R.id.rvInformationHub);
         rvInformationHub.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         sectionListAdapter = new SectionListAdapter();
@@ -64,11 +66,16 @@ public class InformationHubActivity extends AppCompatActivity {
                             // Sort or order sections if needed
                             // Collections.sort(allSections, yourComparator);
                             sectionListAdapter.submitList(new ArrayList<>(allSections));
+                            scrollToTop();
                         }
                     } else {
                         Log.d("Firestore", "Error getting documents: ", task.getException());
                     }
                 });
+    }
+
+    private void scrollToTop() {
+        rvInformationHub.scrollToPosition(0);
     }
 
 }

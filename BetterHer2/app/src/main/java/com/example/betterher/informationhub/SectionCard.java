@@ -1,6 +1,7 @@
-package com.example.swipablecardtest.informationhub;
+package com.example.betterher.informationhub;
 
-import com.example.swipablecardtest.R;
+import com.example.betterher.R;
+
 
 public class SectionCard {
     private String sectionCardTitle;

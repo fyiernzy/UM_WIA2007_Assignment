@@ -12,16 +12,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BetterHer"
         tools:targetApi="31">
+
         <activity
-            android:name=".MainActivity"
+            android:name=".forum.PostActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.BetterHer">
+        </activity>
+
+        <activity
+            android:name=".card.RecommendationActivity"
+            android:exported="true">
+
+
+        </activity>
+
+        <activity
+            android:name=".informationhub.InformationHubActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".forum.ForumActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".forum.ViewPostActivity"
+            android:exported="true">
         </activity>
     </application>
 

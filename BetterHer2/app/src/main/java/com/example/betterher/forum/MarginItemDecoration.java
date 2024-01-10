@@ -1,4 +1,4 @@
-package com.example.swipablecardtest.forum;
+package com.example.betterher.forum;
 
 import android.graphics.Rect;
 import android.view.View;

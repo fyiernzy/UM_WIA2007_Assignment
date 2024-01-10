@@ -1,6 +1,6 @@
-package com.example.swipablecardtest.forum;
+package com.example.betterher.forum;
 
-import com.example.swipablecardtest.R;
+import com.example.betterher.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import android.content.Context;

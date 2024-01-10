@@ -1,5 +1,4 @@
-package com.example.swipablecardtest.informationhub;
-
+package com.example.betterher.informationhub;
 
 import android.view.View;
 import android.widget.TextView;
@@ -7,7 +6,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.swipablecardtest.R;
+import com.example.betterher.R;
 
 public class SectionViewHolder extends RecyclerView.ViewHolder {
     TextView tvSectionTitle;

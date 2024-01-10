@@ -1,4 +1,4 @@
-package com.example.swipablecardtest;
+package com.example.betterher.card;
 
 import androidx.recyclerview.widget.DiffUtil;
 

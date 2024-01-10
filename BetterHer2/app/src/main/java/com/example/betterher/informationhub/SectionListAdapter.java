@@ -1,4 +1,4 @@
-package com.example.swipablecardtest.informationhub;
+package com.example.betterher.informationhub;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.swipablecardtest.R;
+import com.example.betterher.R;
 
 public class SectionListAdapter extends ListAdapter<Section, RecyclerView.ViewHolder> {
     private static final int TYPE_HEADER = 0;
@@ -73,6 +73,22 @@ public class SectionListAdapter extends ListAdapter<Section, RecyclerView.ViewHo
             tvHeaderTitle = itemView.findViewById(R.id.tvHeaderTitle); // The title TextView
             searchView = itemView.findViewById(R.id.searchView); // The SearchView
             searchView.setIconified(false);
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    // Handle the search query when submitted
+                    // You can call a method in your activity or fragment to perform the search
+                    // Or use an interface/callback to communicate with the activity/fragment
+                    return true;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    // Handle the search query as it changes
+                    // Useful for live search/filtering
+                    return true;
+                }
+            });
         }
     }
 

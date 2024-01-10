@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">BetterHer</string>
+    <string name="app_name">Better Her</string>
+    <string name="info_hub_name">Info Hub</string>
+    <string name="image_description">This is the image for card swipe\n</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.swipablecardtest.informationhub;
+package com.example.betterher.informationhub;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;

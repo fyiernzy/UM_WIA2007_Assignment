@@ -1,4 +1,4 @@
-package com.example.swipablecardtest.informationhub;
+package com.example.betterher.informationhub;
 
 import android.content.Context;
 import android.content.Intent;
