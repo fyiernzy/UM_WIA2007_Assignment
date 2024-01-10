@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/info_hub_name"
+        android:fontFamily="@font/montserrat_extra_bold"
         android:textFontWeight="800"
         android:textSize="40sp" />
 
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:queryHint="Search here"
+        android:fontFamily="@font/montserrat_regular"
         android:iconifiedByDefault="false" />
 
     <!-- Add any other views you want in your header below -->

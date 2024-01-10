@@ -1,9 +1,14 @@
 package com.example.betterher.informationhub;
 
+import static java.security.AccessController.getContext;
+
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
 
@@ -12,6 +17,11 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.betterher.R;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SectionListAdapter extends ListAdapter<Section, RecyclerView.ViewHolder> {
     private static final int TYPE_HEADER = 0;
@@ -40,7 +50,23 @@ public class SectionListAdapter extends ListAdapter<Section, RecyclerView.ViewHo
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == TYPE_HEADER) {
             View headerView = LayoutInflater.from(parent.getContext()).inflate(R.layout.header_combined, parent, false);
-            return new HeaderViewHolder(headerView);
+            FirestoreSearchCallback callback = new FirestoreSearchCallback() {
+                @Override
+                public void onSearchResult(List<Content> results) {
+                    if (results.isEmpty()) {
+                        Toast.makeText(parent.getContext(), "No content found", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(parent.getContext(), "Content found", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    // Handle any errors
+                }
+            };
+
+            return new HeaderViewHolder(headerView, callback);
         } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.section_item, parent, false);
             return new SectionViewHolder(view); // Assuming you have a SectionViewHolder class
@@ -64,33 +90,7 @@ public class SectionListAdapter extends ListAdapter<Section, RecyclerView.ViewHo
     }
 
     // HeaderViewHolder Class
-    static class HeaderViewHolder extends RecyclerView.ViewHolder {
-        TextView tvHeaderTitle;
-        SearchView searchView;
 
-        HeaderViewHolder(View itemView) {
-            super(itemView);
-            tvHeaderTitle = itemView.findViewById(R.id.tvHeaderTitle); // The title TextView
-            searchView = itemView.findViewById(R.id.searchView); // The SearchView
-            searchView.setIconified(false);
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    // Handle the search query when submitted
-                    // You can call a method in your activity or fragment to perform the search
-                    // Or use an interface/callback to communicate with the activity/fragment
-                    return true;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    // Handle the search query as it changes
-                    // Useful for live search/filtering
-                    return true;
-                }
-            });
-        }
-    }
 
 }
 

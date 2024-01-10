@@ -24,9 +24,10 @@
             android:id="@+id/post_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
             android:padding="10dp"
-            android:textSize="20sp"
             android:textColor="#DE000000"
+            android:textSize="20sp"
             tools:text="Title" />
 
         <TextView
@@ -36,8 +37,8 @@
             android:ellipsize="end"
             android:maxLines="3"
             android:padding="8dp"
-            android:textSize="14sp"
             android:textColor="#8A000000"
+            android:textSize="14sp"
             tools:text="This is a sample description..." />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,9 +51,9 @@
                 android:id="@+id/profile_image"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 tools:src="@drawable/baseline_person_24" />
 
             <!-- TextView for poster name -->
@@ -60,11 +61,12 @@
                 android:id="@+id/poster_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
                 android:layout_marginStart="8dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/profile_image"
                 app:layout_constraintStart_toEndOf="@id/profile_image"
                 app:layout_constraintTop_toTopOf="@id/profile_image"
-                app:layout_constraintBottom_toBottomOf="@id/profile_image"
                 tools:text="Poster Name" />
 
             <ImageView
@@ -82,9 +84,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/icon_likes"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/icon_likes"
-                app:layout_constraintBottom_toBottomOf="@id/icon_likes"
                 tools:text="5,000" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

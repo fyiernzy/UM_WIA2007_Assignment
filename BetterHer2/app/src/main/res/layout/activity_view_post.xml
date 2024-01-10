@@ -36,11 +36,13 @@
                 android:textColor="#E15A3E"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:text="This is a title"/>
+                tools:text="This is a title"
+                android:fontFamily="@font/montserrat_bold"/>
 
             <!-- Content -->
             <TextView
                 android:id="@+id/post_content"
+                android:fontFamily="@font/montserrat_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="24dp"
