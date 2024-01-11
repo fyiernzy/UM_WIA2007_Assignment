@@ -31,7 +31,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/inter_semibold"
             android:text="Edit profile"
-            android:textSize="26sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
             android:fontFamily="@font/inter"
             android:id="@+id/textView_update_profile_username"
             android:layout_below="@+id/editText_update_profile_fullName"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:text="Username"
             android:textColor="@color/black"
             android:textSize="18sp" />
@@ -87,7 +87,7 @@
             android:fontFamily="@font/inter"
             android:id="@+id/textView_update_profile_gender"
             android:layout_below="@id/editText_update_profile_username"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:text="Gender"
             android:textColor="@color/black"
             android:textSize="18sp" />
@@ -119,15 +119,17 @@
 
         </RadioGroup>
 
-        <ImageView
-            android:id="@+id/image_update"
-            android:layout_width="245dp"
-            android:layout_height="209dp"
+        <Button
+            android:id="@+id/updateProfile_button_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/light_grey"
+            android:fontFamily="@font/inter_semibold"
+            android:layout_marginTop="55dp"
             android:layout_below="@id/radioGroup_update_gender"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="7dp"
-            android:background="@drawable/img_5" />
-
+            android:textSize="16sp"
+            android:onClick="updateProfile"
+            app:cornerRadius="14dp" />
 
         <Button
             android:id="@+id/updateProfile_button"
@@ -135,8 +137,8 @@
             android:layout_height="60dp"
             android:backgroundTint="@color/orange"
             android:fontFamily="@font/inter_semibold"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/image_update"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/radioGroup_update_gender"
             android:text="Update Profile"
             android:textSize="16sp"
             android:onClick="updateProfile"

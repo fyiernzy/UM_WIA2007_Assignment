@@ -115,8 +115,14 @@ public class UpdateProfileActivity extends AppCompatActivity {
             return;
         }
 
-        // Check if the new username is unique
-        checkUsernameAvailability(newUsername, newFullName, newGender);
+        // Check if the full name has changed
+        if (!newFullName.equals(getIntent().getStringExtra("fullName"))) {
+            // Full name has changed, update it directly
+            updateUserData(newFullName, newUsername, newGender);
+        } else {
+            // Full name remains the same, check if the new username is unique
+            checkUsernameAvailability(newUsername, newFullName, newGender);
+        }
     }
 
     // Get the selected gender from radio group
