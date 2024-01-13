@@ -91,7 +91,7 @@ public class GetSupportAdapter extends RecyclerView.Adapter {
 
                 ((CardViewHolder) holder).btnContactNow.setOnClickListener(args -> {
                     Intent phone_intent = new Intent(Intent.ACTION_DIAL);
-                    phone_intent.setData(Uri.parse("tel:" + centerPhoneNumber));
+                    phone_intent.setData(Uri.parse("tel:" + getSupportCenterModels.get(position - 1).getCenterPhoneNumber()));
                     context.startActivity(phone_intent);
                 });
                 break;
