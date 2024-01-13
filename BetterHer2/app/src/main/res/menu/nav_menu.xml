@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon= "@drawable/baseline_person_24"
+            android:title="     Profile"/>
+
+        <item
+            android:id="@+id/nav_quiz"
+            android:icon= "@drawable/baseline_quiz_24"
+            android:title="     Quiz"/>
+
+        <item
+            android:id="@+id/nav_info_hub"
+            android:icon= "@drawable/baseline_library_books_24"
+            android:title="     Information hub"/>
+
+        <item
+            android:id="@+id/nav_forum"
+            android:icon= "@drawable/baseline_forum_24"
+            android:title="     Forum"/>
+
+        <item
+            android:id="@+id/nav_safety_support"
+            android:icon= "@drawable/baseline_health_and_safety_24"
+            android:title="     Safety and support"/>
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon= "@drawable/baseline_settings_24"
+            android:title="     Settings"/>
+
+
+        <item
+            android:id="@+id/nav_about"
+            android:icon= "@drawable/baseline_info_24"
+            android:title="     About Us"/>
+
+
+
+
+    </group>
+
+    <group
+        android:id="@+id/group_safety"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <item
+            android:id="@+id/dest_urgent_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:title="Urgent Help" />
+        <item
+            android:id="@+id/dest_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:title="Report Inequality" />
+        <item
+            android:id="@+id/dest_track_cases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:title="Track Cases" />
+        <item
+            android:id="@+id/dest_get_support"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:title="Get Support" />
+    </group>
+
+    <item
+        android:title="">
+
+        <menu>
+            <item
+                android:id="@+id/logout_button"
+                android:icon="@drawable/baseline_exit_to_app_24"
+                android:title="     Log out">
+
+            </item>
+
+        </menu>
+    </item>
+</menu>

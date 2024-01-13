@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         //navigation drawer menu
         drawerLayout = findViewById(R.id.dl_safety);
         navigationView = findViewById(R.id.side_nav);
-        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open_nav, R.string.close_nav);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

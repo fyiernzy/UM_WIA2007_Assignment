@@ -3,9 +3,6 @@ package com.example.betterher.informationhub;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.DiffUtil;
-
 public class SectionDiff extends DiffUtil.ItemCallback<Section> {
     @Override
     public boolean areItemsTheSame(@NonNull Section oldSection, @NonNull Section newSection) {

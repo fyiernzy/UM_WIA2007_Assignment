@@ -12,4 +12,11 @@
     <color name="light_gray">#FFC1C1C1</color>
     <color name="dark_gray">#FF6F6F6F</color>
     <color name="red">#FFFF0000</color>
+    <color name="orange">#FC9E8B</color>
+    <color name="light_grey">#C0BEBE</color>
+    <color name="shadow">#CFCFCF</color>
+    <color name="dark_grey">#818080</color>
+    <color name="pink">#FC9E8B</color>
+    <color name="green">#6BB56C</color>
+    <color name="darkGrey">#757575</color>
 </resources>
