@@ -1,5 +1,37 @@
 <resources>
-    <string name="app_name">Better Her</string>
+    <string name="app_name"> </string>
     <string name="info_hub_name">Info Hub</string>
     <string name="image_description">This is the image for card swipe\n</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open">Open Navigation Drawer</string>
+    <string name="close">Close Navigation Drawer</string>
+
+    <string-array name="dropdown_roles">
+        <item>Victim</item>
+        <item>Witness</item>
+    </string-array>
+
+    <string-array name="dropdown_incident_types">
+        <item>Access to Healthcare Discrimination</item>
+        <item>Child Marriage</item>
+        <item>Cyber Harassment</item>
+        <item>Denial of Educational Opportunities</item>
+        <item>Dowry-related Violence</item>
+        <item>Female Genital Mutilation (FGM)</item>
+        <item>Forced Marriage</item>
+        <item>Honor Killings</item>
+        <item>Physical Harassment</item>
+        <item>Reproductive Coercion</item>
+        <item>Sex Trafficking</item>
+        <item>Sexual Assault</item>
+        <item>Street Harassment</item>
+        <item>Stereotyping</item>
+        <item>Unequal Pay</item>
+        <item>Unequal Treatment</item>
+        <item>Verbal Harassment</item>
+        <item>Workplace Discrimination</item>
+        <item>Workplace Discrimination</item>
+        <item>Sexist Language</item>
+        <item>Stalking</item>
+    </string-array>
 </resources>
