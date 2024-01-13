@@ -18,6 +18,12 @@ public class ReminderBroadcast extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setContentTitle("BetterHer UPDATE:")
                 .setContentText("-\tNew Video on 'Women Empowerment' by Harper BAZAAR is released! Have A Look! ")
+                //.setContentTitle("BetterHer DAILY QUOTE:")
+                //.setContentText("-\tThis is Your Moment! Own It! ")
+                //.setContentTitle("BetterHer REMINDER:")
+                //.setContentText("-\tYou are Powerful, Beautiful, Brilliant & Brave! ")
+                //.setContentTitle("BetterHer UPDATE:")
+                //.setContentText("-\tNew set of Revision Card on 'Discrimination' is out! Try It Out! ")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
