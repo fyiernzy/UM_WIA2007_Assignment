@@ -43,16 +43,20 @@
         android:textSize="16sp"
         android:textColor="@color/black"
         android:layout_marginTop="20dp"
+        style="@style/YellowButton"
         android:backgroundTint="@color/light_grey"
         android:fontFamily="@font/inter_semibold"
+        android:background="@drawable/rounded_corner"
         android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/first_login_button"
+        style="@style/PinkButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Log In"
         android:textSize="16sp"
+        android:background="@drawable/rounded_corner"
         android:textColor="@color/white"
         android:backgroundTint="@color/orange"
         android:fontFamily="@font/inter_semibold"
@@ -66,18 +70,21 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textColor="@color/black"
+        android:background="@drawable/rounded_corner"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/light_grey"
+        android:backgroundTint="@color/peach"
         android:fontFamily="@font/inter_semibold"
         android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/first_signup_button"
+        style="@style/YellowButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:textSize="16sp"
         android:textColor="@color/black"
+        android:background="@drawable/rounded_corner"
         android:backgroundTint="#FFEAB2"
         android:fontFamily="@font/inter_semibold"
         android:layout_marginTop="-52dp"
