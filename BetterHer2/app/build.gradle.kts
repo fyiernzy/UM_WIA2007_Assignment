@@ -59,6 +59,7 @@ dependencies {
     implementation("com.yuyakaido.android:card-stack-view:2.3.4")
     implementation("com.github.smarteist:autoimageslider:1.3.9")
     implementation("com.github.bumptech.glide:glide:5.0.0-rc01")
+    implementation("jp.wasabeef:glide-transformations:4.0.0")
 
     // Room components
     implementation("androidx.room:room-runtime:2.6.1")
