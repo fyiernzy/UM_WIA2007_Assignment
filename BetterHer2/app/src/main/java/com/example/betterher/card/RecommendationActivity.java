@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 
 import com.example.betterher.R;
 import com.example.betterher.informationhub.Content;
-import com.example.betterher.informationhub.InformationHubActivity;
+import com.example.betterher.informationhub.InformationHubFragment;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
@@ -129,7 +129,7 @@ public class RecommendationActivity extends AppCompatActivity {
 
 
     private void redirectToInformationHub() {
-        Intent intent = new Intent(this, InformationHubActivity.class);
+        Intent intent = new Intent(this, InformationHubFragment.class);
         startActivity(intent);
     }
 

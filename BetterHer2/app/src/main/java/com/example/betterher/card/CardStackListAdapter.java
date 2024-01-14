@@ -54,6 +54,7 @@ public class CardStackListAdapter extends ListAdapter<Content, CardStackListAdap
             // Regular card handling
             holder.tvTitle.setText(content.getTitle());
             holder.tvAuthor.setText(content.getAuthor());
+            holder.tvLabel.setText(content.getType());
 
             Glide.with(holder.itemView.getContext())
                     .load(content.getImageUrl())
@@ -79,6 +80,8 @@ public class CardStackListAdapter extends ListAdapter<Content, CardStackListAdap
         ImageView ivImage;
         TextView tvTitle;
         TextView tvAuthor;
+        View cardLabel;
+        TextView tvLabel;
 
         CardViewHolder(View itemView, int viewType) {
             super(itemView);
@@ -86,6 +89,8 @@ public class CardStackListAdapter extends ListAdapter<Content, CardStackListAdap
                 ivImage = itemView.findViewById(R.id.ivImage);
                 tvTitle = itemView.findViewById(R.id.tvTitle);
                 tvAuthor = itemView.findViewById(R.id.tvAuthor);
+                cardLabel = itemView.findViewById(R.id.card_label);
+                tvLabel = cardLabel.findViewById(R.id.tvLabel);
             } // No else part needed, as last card has static content
         }
     }

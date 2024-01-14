@@ -27,8 +27,7 @@ import com.example.betterher.ReportCases.ReportIntroFragment;
 import com.example.betterher.TrackCases.TrackCasesFragment;
 import com.example.betterher.UrgentHelp.UrgentHelpFragment;
 import com.example.betterher.forum.ForumActivity;
-import com.example.betterher.informationhub.InformationHubActivity;
-import com.example.betterher.safetyhome.SafetyHomeFragment;
+import com.example.betterher.informationhub.InformationHubFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -127,9 +126,7 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
         int itemId = item.getItemId();
 
         if (itemId == R.id.nav_info_hub) {
-            // Start InformationHubActivity
-            startActivity(new Intent(SideNavigationDrawer.this, InformationHubActivity.class));
-            // Optional: Close the current activity if needed
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InformationHubFragment()).commit();
         } else if (itemId == R.id.nav_profile) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserProfileFragment()).commit();
         } else if (itemId == R.id.nav_quiz) {
@@ -151,6 +148,10 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void switchFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
     }
 
     public void onBackPressed() {

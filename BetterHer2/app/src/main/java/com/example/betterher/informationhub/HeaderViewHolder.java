@@ -122,4 +122,5 @@ public class HeaderViewHolder extends RecyclerView.ViewHolder {
                 })
                 .addOnFailureListener(callback::onError);
     }
+
 }

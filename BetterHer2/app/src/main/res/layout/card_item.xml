@@ -30,6 +30,7 @@
         <!-- Video title, centered and with increased size -->
         <TextView
             android:id="@+id/tvTitle"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
@@ -52,9 +53,19 @@
             app:layout_constraintWidth_percent="0.8"
             tools:text="Scenic Mountain Lake - A Serene View" />
 
+        <include
+            android:id="@+id/card_label"
+            layout="@layout/card_label_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- New TextView for the author -->
         <TextView
+            android:fontFamily="@font/montserrat_regular"
             android:id="@+id/tvAuthor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
