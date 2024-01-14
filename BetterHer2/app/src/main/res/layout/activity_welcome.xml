@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/img_bg_login"
     android:orientation="vertical"
     android:padding="16dp">
@@ -36,52 +37,36 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/first_login_button_shadow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/light_grey"
-        android:fontFamily="@font/inter_semibold"
-        android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/first_login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log In"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/orange"
-        android:fontFamily="@font/inter_semibold"
-        android:layout_marginTop="-52dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
         android:layout_marginBottom="8dp"
-        android:layout_gravity="center"/>
-
-    <Button
-        android:id="@+id/first_signup_button_shadow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/light_grey"
+        android:background="@drawable/rounded_corner"
+        app:backgroundTint="@color/orange"
         android:fontFamily="@font/inter_semibold"
-        android:layout_gravity="center"/>
+        android:text="Log In"
+        style="@style/PinkButton"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/first_signup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        style="@style/PinkButton"
         android:textSize="16sp"
         android:textColor="@color/black"
-        android:backgroundTint="#FFEAB2"
+        android:background="@drawable/rounded_corner"
+        app:backgroundTint="#FFEAB2"
         android:fontFamily="@font/inter_semibold"
-        android:layout_marginTop="-52dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
+
 
 
 

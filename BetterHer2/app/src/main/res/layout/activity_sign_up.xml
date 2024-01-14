@@ -193,10 +193,11 @@
 
         <Button
             android:id="@+id/signup_button"
+            style="@style/PinkButton"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="-63dp"
-            android:backgroundTint="@color/orange"
+            app:backgroundTint="@color/orange"
             android:fontFamily="@font/inter_semibold"
             android:text="Sign Up"
             android:textSize="16sp"
