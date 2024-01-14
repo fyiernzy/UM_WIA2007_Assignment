@@ -43,7 +43,6 @@
                         android:layout_height="match_parent"
                         android:backgroundTint="#FC9E8B"
                         android:contentDescription="Upload Image"
-                        android:text="+"
                         android:textSize="30sp"
                         android:textColor="@color/white"
                         android:fontFamily="@font/montserrat_semi_bold"

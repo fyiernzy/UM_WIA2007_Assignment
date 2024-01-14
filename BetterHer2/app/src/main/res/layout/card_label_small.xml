@@ -6,6 +6,7 @@
     android:backgroundTint="#DE6F59">
 
     <TextView
+        android:id="@+id/tvLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner_background_small"
