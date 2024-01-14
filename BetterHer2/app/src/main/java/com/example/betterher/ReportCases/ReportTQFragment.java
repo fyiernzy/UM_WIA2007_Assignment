@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.betterher.MainActivity;
 import com.example.betterher.R;
@@ -15,7 +16,6 @@ import com.example.betterher.TrackCases.TrackCasesFragment;
 
 
 public class ReportTQFragment extends Fragment {
-    MainActivity mainActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,13 +31,16 @@ public class ReportTQFragment extends Fragment {
             }
         }
 
-        mainActivity = (MainActivity) getActivity();
-
         final Button btnTrackCases = view.findViewById(R.id.btn_track_cases);
         btnTrackCases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainActivity.replaceFragment(new TrackCasesFragment());
+                Fragment trackCasesFragment = new TrackCasesFragment();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
+                transaction.replace(R.id.fragment_container, trackCasesFragment); // R.id.fragment_container is the id of the layout container where the fragment will be placed
+                transaction.addToBackStack(null); // Optional: add transaction to the back stack
+                transaction.commit();
             }
         });
         return view;

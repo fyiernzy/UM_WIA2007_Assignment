@@ -35,11 +35,13 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.betterher.MainActivity;
 import com.example.betterher.R;
 import com.example.betterher.TrackCases.TrackCasesChildItem;
+import com.example.betterher.TrackCases.TrackCasesFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.Places;
@@ -63,7 +65,7 @@ import java.util.Date;
 
 public class ReportFragment extends Fragment {
 
-    MainActivity mainActivity;
+//    MainActivity mainActivity;
     FirebaseFirestore db;
     StorageReference storageReference;
     FirebaseStorage mStorage;
@@ -96,7 +98,7 @@ public class ReportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_report, container, false);
 
-        mainActivity = (MainActivity) getActivity();
+        // mainActivity = (MainActivity) getActivity();
         db = FirebaseFirestore.getInstance();
         mStorage = FirebaseStorage.getInstance();
         storageReference = mStorage.getReference();
@@ -362,7 +364,12 @@ public class ReportFragment extends Fragment {
                     ReportTQFragment reportTQFragment = new ReportTQFragment();
                     reportTQFragment.setArguments(bundle);
                     progressBar.setVisibility(View.VISIBLE);
-                    mainActivity.replaceFragment(reportTQFragment);
+
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
+                    transaction.replace(R.id.fragment_container, reportTQFragment); // R.id.fragment_container is the id of the layout container where the fragment will be placed
+                    transaction.addToBackStack(null); // Optional: add transaction to the back stack
+                    transaction.commit();
 
                     db.collection("Users").document(userUid).collection("Cases").document(caseItem.getCaseId())
                             .set(caseItem, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {

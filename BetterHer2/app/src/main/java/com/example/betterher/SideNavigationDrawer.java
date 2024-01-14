@@ -26,6 +26,7 @@ import com.example.betterher.Quiz.Views.QuizHomeFragment;
 import com.example.betterher.ReportCases.ReportIntroFragment;
 import com.example.betterher.TrackCases.TrackCasesFragment;
 import com.example.betterher.UrgentHelp.UrgentHelpFragment;
+import com.example.betterher.safetyhome.SafetyHomeFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -138,9 +139,9 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
         } else if (itemId == R.id.nav_info_hub) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoHubFragment()).commit();
         } else if (itemId == R.id.nav_forum) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Safety_Support_Fragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ForumFragment()).commit();
         } else if (itemId == R.id.nav_safety_support) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Safety_Support_Fragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SafetyHomeFragment()).commit();
         } else if (itemId == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
         } else if (itemId == R.id.nav_about) {
