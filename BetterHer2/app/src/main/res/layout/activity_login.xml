@@ -126,11 +126,11 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/login_button"
-            style="@style/PinkButton"
             android:layout_width="match_parent"
+            style="@style/PinkButton"
             android:layout_height="60dp"
             android:layout_marginTop="-63.5dp"
-            android:backgroundTint="@color/orange"
+            app:backgroundTint="@color/orange"
             android:fontFamily="@font/montserrat_semibold"
             android:text="Log In"
             android:textColor="@color/white"
