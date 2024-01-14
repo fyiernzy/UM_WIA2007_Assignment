@@ -26,7 +26,7 @@ import com.example.betterher.Quiz.Views.QuizHomeFragment;
 import com.example.betterher.ReportCases.ReportIntroFragment;
 import com.example.betterher.TrackCases.TrackCasesFragment;
 import com.example.betterher.UrgentHelp.UrgentHelpFragment;
-import com.example.betterher.forum.ForumActivity;
+import com.example.betterher.forum.ForumFragment;
 import com.example.betterher.informationhub.InformationHubFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -140,9 +140,7 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
         } else if (itemId == R.id.dest_get_support) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new GetSupportIntroFragment()).commit();
         } else if (itemId == R.id.nav_forum) {
-            // Start ForumActivity
-            startActivity(new Intent(SideNavigationDrawer.this, ForumActivity.class));
-            finish();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ForumFragment()).commit();
         } else if (itemId == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
         } else if (itemId == R.id.nav_about) {
