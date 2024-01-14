@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -44,7 +45,7 @@ public class NotificationFragment extends Fragment {
         button.setOnClickListener(v -> {
             Toast.makeText(getContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(getContext(), ReminderBroadcast.class);
+            Intent intent = new Intent(requireContext(), ReminderBroadcast.class);
             PendingIntent pendingIntent;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
@@ -75,6 +76,20 @@ public class NotificationFragment extends Fragment {
 
             NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == 101) {
+            // Check if the permission was granted
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, you can proceed with your logic
+            } else {
+                // Permission denied, handle accordingly
+            }
         }
     }
 }

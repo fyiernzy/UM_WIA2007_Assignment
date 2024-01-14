@@ -13,7 +13,7 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 
 public class ViewPostActivity extends AppCompatActivity {
-    private TextView title, content;
+    private TextView title, content, likes, saves;
     private SliderView imageSlider;
     private ImageView iconLikes, iconSaves; // Add ImageView for likes and saves
     private boolean isLiked = false, isSaved = false; // Trackers for like and save status
@@ -28,6 +28,9 @@ public class ViewPostActivity extends AppCompatActivity {
         imageSlider = findViewById(R.id.imageSlider); // Replace with your SliderView ID
         iconLikes = findViewById(R.id.icon_likes); // Initialize like ImageView
         iconSaves = findViewById(R.id.icon_saves); // Initialize save ImageView
+        likes = findViewById(R.id.likes_count); // Initialize likes TextView
+        saves = findViewById(R.id.saves_count); // Initialize saves TextView
+
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -58,8 +61,12 @@ public class ViewPostActivity extends AppCompatActivity {
                 isLiked = !isLiked; // Toggle the like status
                 if (isLiked) {
                     iconLikes.setImageResource(R.drawable.love_filled); // Change to filled icon
+                    int value = Integer.parseInt(likes.getText().toString()) + 1; // Increment the like count
+                    likes.setText(String.valueOf(value));
                 } else {
                     iconLikes.setImageResource(R.drawable.love_unfilled); // Change to unfilled icon
+                    int value = Integer.parseInt(likes.getText().toString()) - 1; // Decrement the like count
+                    likes.setText(String.valueOf(value));
                 }
             }
         });
@@ -71,8 +78,12 @@ public class ViewPostActivity extends AppCompatActivity {
                 isSaved = !isSaved; // Toggle the save status
                 if (isSaved) {
                     iconSaves.setImageResource(R.drawable.star_filled); // Change to filled icon
+                    int value = Integer.parseInt(saves.getText().toString()) + 1; // Increment the like count
+                    saves.setText(String.valueOf(value));
                 } else {
                     iconSaves.setImageResource(R.drawable.star_unfilled); // Change to unfilled icon
+                    int value = Integer.parseInt(saves.getText().toString()) + 1; // Increment the like count
+                    saves.setText(String.valueOf(value));
                 }
             }
         });
