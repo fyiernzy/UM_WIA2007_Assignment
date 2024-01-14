@@ -2,22 +2,25 @@ package com.example.betterher.informationhub;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.betterher.R;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class InformationHubActivity extends AppCompatActivity {
+public class InformationHubFragment extends Fragment {
     private static final String TAG = "InformationHubActivity";
 
     private SectionListAdapter sectionListAdapter;
@@ -25,14 +28,13 @@ public class InformationHubActivity extends AppCompatActivity {
     private List<Section> allSections;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.information_hub);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_information_hub, container, false);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        rvInformationHub = findViewById(R.id.rvInformationHub);
-        rvInformationHub.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rvInformationHub = view.findViewById(R.id.rvInformationHub);
+        rvInformationHub.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
         sectionListAdapter = new SectionListAdapter();
         rvInformationHub.setAdapter(sectionListAdapter);
@@ -47,7 +49,10 @@ public class InformationHubActivity extends AppCompatActivity {
         for (int i = 0; i < fields.length; i++) {
             loadContentFromFirestore(db, fields[i], titles[i], pendingLoads);
         }
+
+        return view;
     }
+
 
     private void loadContentFromFirestore(FirebaseFirestore db, String field, String sectionTitle, AtomicInteger pendingLoads) {
         db.collection("Content").whereEqualTo("field", field)
