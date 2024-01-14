@@ -28,9 +28,29 @@
             android:title="     Forum"/>
 
         <item
-            android:id="@+id/nav_safety_support"
+            android:id="@+id/dest_urgent_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon= "@drawable/baseline_live_help_24"
+            android:title="     Urgent Help" />
+        <item
+            android:id="@+id/dest_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon= "@drawable/baseline_report_24"
+            android:title="     Report Inequality" />
+        <item
+            android:id="@+id/dest_track_cases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:icon= "@drawable/baseline_health_and_safety_24"
-            android:title="     Safety and support"/>
+            android:title="     Track Cases" />
+        <item
+            android:id="@+id/dest_get_support"
+            android:layout_width="wrap_content"
+            android:icon= "@drawable/baseline_gpp_maybe_24"
+            android:layout_height="wrap_content"
+            android:title="     Get Support" />
 
         <item
             android:id="@+id/nav_settings"
@@ -43,35 +63,6 @@
             android:icon= "@drawable/baseline_info_24"
             android:title="     About Us"/>
 
-
-
-
-    </group>
-
-    <group
-        android:id="@+id/group_safety"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <item
-            android:id="@+id/dest_urgent_help"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:title="Urgent Help" />
-        <item
-            android:id="@+id/dest_report"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:title="Report Inequality" />
-        <item
-            android:id="@+id/dest_track_cases"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:title="Track Cases" />
-        <item
-            android:id="@+id/dest_get_support"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:title="Get Support" />
     </group>
 
     <item

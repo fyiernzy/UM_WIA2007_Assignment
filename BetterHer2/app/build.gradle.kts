@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId = "com.example.betterher"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -60,6 +60,9 @@ dependencies {
     implementation("com.yuyakaido.android:card-stack-view:2.3.4")
     implementation("com.github.smarteist:autoimageslider:1.3.9")
     implementation("com.github.bumptech.glide:glide:5.0.0-rc01")
+
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
     // Room components
     implementation("androidx.room:room-runtime:2.6.1")

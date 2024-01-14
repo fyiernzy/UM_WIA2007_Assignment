@@ -38,10 +38,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.betterher.MainActivity;
 import com.example.betterher.R;
 import com.example.betterher.TrackCases.TrackCasesChildItem;
-import com.example.betterher.TrackCases.TrackCasesFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.Places;

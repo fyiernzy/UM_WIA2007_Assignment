@@ -26,6 +26,8 @@ import com.example.betterher.Quiz.Views.QuizHomeFragment;
 import com.example.betterher.ReportCases.ReportIntroFragment;
 import com.example.betterher.TrackCases.TrackCasesFragment;
 import com.example.betterher.UrgentHelp.UrgentHelpFragment;
+import com.example.betterher.forum.ForumActivity;
+import com.example.betterher.informationhub.InformationHubActivity;
 import com.example.betterher.safetyhome.SafetyHomeFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -124,7 +126,11 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
     public boolean onNavigationItemSelected(@Nonnull MenuItem item) {
         int itemId = item.getItemId();
 
-        if (itemId == R.id.nav_profile) {
+        if (itemId == R.id.nav_info_hub) {
+            // Start InformationHubActivity
+            startActivity(new Intent(SideNavigationDrawer.this, InformationHubActivity.class));
+            // Optional: Close the current activity if needed
+        } else if (itemId == R.id.nav_profile) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserProfileFragment()).commit();
         } else if (itemId == R.id.nav_quiz) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new QuizHomeFragment()).commit();
@@ -136,12 +142,10 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TrackCasesFragment()).commit();
         } else if (itemId == R.id.dest_get_support) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new GetSupportIntroFragment()).commit();
-        } else if (itemId == R.id.nav_info_hub) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoHubFragment()).commit();
         } else if (itemId == R.id.nav_forum) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ForumFragment()).commit();
-        } else if (itemId == R.id.nav_safety_support) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SafetyHomeFragment()).commit();
+            // Start ForumActivity
+            startActivity(new Intent(SideNavigationDrawer.this, ForumActivity.class));
+            finish();
         } else if (itemId == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
         } else if (itemId == R.id.nav_about) {
