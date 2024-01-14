@@ -131,14 +131,8 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserProfileFragment()).commit();
         } else if (itemId == R.id.nav_quiz) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new QuizHomeFragment()).commit();
-        } else if (itemId == R.id.dest_urgent_help) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UrgentHelpFragment()).commit();
-        } else if (itemId == R.id.dest_report) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ReportIntroFragment()).commit();
-        } else if (itemId == R.id.dest_track_cases) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TrackCasesFragment()).commit();
-        } else if (itemId == R.id.dest_get_support) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new GetSupportIntroFragment()).commit();
+        } else if (itemId == R.id.nav_safety_support) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SafetyHomeFragment()).commit();
         } else if (itemId == R.id.nav_forum) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ForumFragment()).commit();
         } else if (itemId == R.id.nav_settings) {
