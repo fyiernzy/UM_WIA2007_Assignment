@@ -1,4 +1,5 @@
 package com.example.betterher;
+
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -21,20 +22,19 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.betterher.Authentication.LoginActivity;
-import com.example.betterher.GetSupport.GetSupportIntroFragment;
+import com.example.betterher.Notification.NotificationFragment;
 import com.example.betterher.Quiz.Views.QuizHomeFragment;
-import com.example.betterher.ReportCases.ReportIntroFragment;
-import com.example.betterher.TrackCases.TrackCasesFragment;
-import com.example.betterher.UrgentHelp.UrgentHelpFragment;
+import com.example.betterher.forum.ForumFragment;
 import com.example.betterher.safetyhome.SafetyHomeFragment;
-import com.example.betterher.forum.ForumActivity;
-import com.example.betterher.informationhub.InformationHubFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.MetadataChanges;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Nonnull;
 
@@ -47,6 +47,7 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
     private TextView textUsername, textEmail, textUserId;
     private ImageView profileImageView;
     private ListenerRegistration userListener;
+    private Map<Integer, Class<? extends Fragment>> fragmentMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,33 +127,40 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
     public boolean onNavigationItemSelected(@Nonnull MenuItem item) {
         int itemId = item.getItemId();
 
-        if (itemId == R.id.nav_info_hub) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InformationHubFragment()).commit();
-        } else if (itemId == R.id.nav_profile) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserProfileFragment()).commit();
-        } else if (itemId == R.id.nav_quiz) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new QuizHomeFragment()).commit();
-        } else if (itemId == R.id.nav_safety_support) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SafetyHomeFragment()).commit();
-        } else if (itemId == R.id.nav_forum) {
-            // Start ForumActivity
-            startActivity(new Intent(SideNavigationDrawer.this, ForumActivity.class));
-            finish();
-        } else if (itemId == R.id.nav_settings) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
-        } else if (itemId == R.id.nav_about) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
+        if (fragmentMap == null) initiateFragmentMap();
+
+        if (fragmentMap.containsKey(itemId)) {
+            switchFragment(fragmentMap.get(itemId));
         } else if (itemId == R.id.logout_button) {
             Toast.makeText(this, "Logout Successful", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(SideNavigationDrawer.this, LoginActivity.class));
             finish();
         }
+
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void switchFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+    public void initiateFragmentMap() {
+        if (fragmentMap == null) {
+            fragmentMap = new HashMap<>();
+            fragmentMap.put(R.id.nav_info_hub, NotificationFragment.class);
+            fragmentMap.put(R.id.nav_profile, UserProfileFragment.class);
+            fragmentMap.put(R.id.nav_quiz, QuizHomeFragment.class);
+            fragmentMap.put(R.id.nav_safety_support, SafetyHomeFragment.class);
+            fragmentMap.put(R.id.nav_forum, ForumFragment.class);
+            fragmentMap.put(R.id.nav_settings, SettingsFragment.class);
+            fragmentMap.put(R.id.nav_about, AboutFragment.class);
+        }
+    }
+
+    public void switchFragment(Class<? extends Fragment> fragmentClass) {
+        try {
+            Fragment fragment = fragmentClass.newInstance();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace(); // Handle the exception as appropriate
+        }
     }
 
     public void onBackPressed() {

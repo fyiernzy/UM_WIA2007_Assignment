@@ -1,8 +1,4 @@
-package com.example.myapplication_1;
-
-import static android.content.Context.ALARM_SERVICE;
-import static android.os.Build.VERSION.SDK_INT;
-
+package com.example.betterher.Notification;
 
 import android.Manifest;
 import android.app.AlarmManager;
@@ -14,68 +10,71 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
+import com.example.betterher.R;
 
 public class NotificationFragment extends Fragment {
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        createNotificationChannel();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
+        createNotificationChannel();
+
         Button button = view.findViewById(R.id.button);
 
-        if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(requireContext(),
-                    android.Manifest.permission.POST_NOTIFICATIONS) !=
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (getContext() != null && ContextCompat.checkSelfPermission(getContext(),
+                    Manifest.permission.POST_NOTIFICATIONS) !=
                     PackageManager.PERMISSION_GRANTED) {
 
-                requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
             }
         }
 
         button.setOnClickListener(v -> {
+            Toast.makeText(getContext(), "Reminder Set!", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(requireContext(), com.example.myapplication_1.ReminderBroadcast.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
+            Intent intent = new Intent(requireContext(), ReminderBroadcast.class);
+            PendingIntent pendingIntent;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
+            } else {
+                pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            }
 
-            AlarmManager alarmManager = (AlarmManager) requireActivity().getSystemService(ALARM_SERVICE);
-
-            long timeAtButtonCLick = System.currentTimeMillis();
-
-            long tenSecondsInMills = 1000 * 10;
-
-            alarmManager.set(AlarmManager.RTC_WAKEUP,
-                    timeAtButtonCLick + tenSecondsInMills,
-                    pendingIntent);
+            if (getContext() != null) {
+                AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+                long timeAtButtonClick = System.currentTimeMillis();
+                long tenSecondsInMillis = 1000 * 10;
+                alarmManager.set(AlarmManager.RTC_WAKEUP,
+                        timeAtButtonClick + tenSecondsInMillis,
+                        pendingIntent);
+            }
         });
-        // Inflate the layout for this fragment
+
         return view;
     }
 
     private void createNotificationChannel() {
-
-        double v = .0;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR_0_1) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && getContext() != null) {
             CharSequence name = "BetterHerReminderChannel";
             String description = "Channel for BetterHer Reminder";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel("notifyBetterHer", name, importance);
             channel.setDescription(description);
 
-            NotificationManager notificationManager = (NotificationManager) requireActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.createNotificationChannel(channel);
         }
     }

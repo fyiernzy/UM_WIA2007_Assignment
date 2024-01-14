@@ -1,15 +1,17 @@
-package com.example.myapplication_1;
+package com.example.betterher.Notification;
 
-import android.os.Build;
 import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
+import com.example.betterher.R;
 
 public class ReminderBroadcast extends BroadcastReceiver {
     @Override
@@ -61,5 +63,6 @@ public class ReminderBroadcast extends BroadcastReceiver {
             e.printStackTrace();
 
 
+        }
     }
-} }
+}

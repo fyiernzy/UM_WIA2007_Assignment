@@ -2,9 +2,12 @@ package com.example.betterher.forum;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -23,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForumActivity extends AppCompatActivity {
+public class ForumFragment extends Fragment {
 
     private static final int PAGE_SIZE = 10; // Determines how many posts to load at once
     RecyclerView recyclerView;
@@ -33,11 +36,10 @@ public class ForumActivity extends AppCompatActivity {
     private boolean isLoading = false; // Tracks if more data is being loaded
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forum);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_forum, container, false);
 
-        recyclerView = findViewById(R.id.masonry_grid);
+        recyclerView = view.findViewById(R.id.masonry_grid);
         int spanCount = 2; // Number of columns in the grid
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL));
         postList = new ArrayList<>();
@@ -47,9 +49,9 @@ public class ForumActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new MarginItemDecoration(10)); // Replace 15 with your desired margin size in pixels.
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> {
-            Intent intent = new Intent(ForumActivity.this, PostActivity.class);
+        FloatingActionButton fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), PostActivity.class);
             startActivity(intent);
         });
 
@@ -84,6 +86,8 @@ public class ForumActivity extends AppCompatActivity {
                 return maxSize;
             }
         });
+
+        return view;
     }
 
 
@@ -126,14 +130,14 @@ public class ForumActivity extends AppCompatActivity {
 
                 isLoading = false; // Update isLoading to false after data is loaded.
             } else {
-                Toast.makeText(ForumActivity.this, "Error fetching posts: " + task.getException(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Error fetching posts: " + task.getException(), Toast.LENGTH_SHORT).show();
                 isLoading = false; // Update isLoading to false on error as well.
             }
         });
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         resetPagination(); // Reset parameters when coming back to the activity
         loadPosts(); // Load posts in case there are new updates
@@ -151,7 +155,7 @@ public class ForumActivity extends AppCompatActivity {
                     public void onEvent(@Nullable QuerySnapshot snapshots,
                                         @Nullable FirebaseFirestoreException e) {
                         if (e != null) {
-                            Toast.makeText(ForumActivity.this, "Error listening for updates: " + e, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Error listening for updates: " + e, Toast.LENGTH_SHORT).show();
                             return;
                         }
 

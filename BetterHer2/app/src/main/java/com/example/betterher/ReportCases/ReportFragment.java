@@ -63,7 +63,7 @@ import java.util.Date;
 
 public class ReportFragment extends Fragment {
 
-//    MainActivity mainActivity;
+//    MainActivity.java mainActivity;
     FirebaseFirestore db;
     StorageReference storageReference;
     FirebaseStorage mStorage;
@@ -96,7 +96,7 @@ public class ReportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_report, container, false);
 
-        // mainActivity = (MainActivity) getActivity();
+        // mainActivity = (MainActivity.java) getActivity();
         db = FirebaseFirestore.getInstance();
         mStorage = FirebaseStorage.getInstance();
         storageReference = mStorage.getReference();
