@@ -346,9 +346,9 @@ public class ReportFragment extends Fragment {
             Case caseItem = new Case(strRole, strIncidentType, strDate, strTime, strLocation, strDescription, urlsList, "", "");
 
             //TODO: test userUid
-            //firebaseAuth = FirebaseAuth.getInstance();
-            //user = firebaseAuth.getCurrentUser();
-            String userUid = "bEBpClWNtU4U0BnnB8jX";
+            firebaseAuth = FirebaseAuth.getInstance();
+            String userUid = firebaseAuth.getCurrentUser().toString();
+            // String userUid = "bEBpClWNtU4U0BnnB8jX";
 
             db.collection("Users").document(userUid).collection("Cases").add(caseItem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override

@@ -23,7 +23,15 @@ import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.betterher.Authentication.LoginActivity;
 import com.example.betterher.Quiz.Views.QuizHomeFragment;
+<<<<<<< HEAD
 import com.example.betterher.forum.ForumFragment;
+=======
+import com.example.betterher.ReportCases.ReportIntroFragment;
+import com.example.betterher.TrackCases.TrackCasesFragment;
+import com.example.betterher.UrgentHelp.UrgentHelpFragment;
+import com.example.betterher.safetyhome.SafetyHomeFragment;
+import com.example.betterher.forum.ForumActivity;
+>>>>>>> 959bfb29f6760c368623170c940843d58acc3e73
 import com.example.betterher.informationhub.InformationHubFragment;
 import com.example.betterher.safetyhome.SafetyHomeFragment;
 import com.google.android.material.navigation.NavigationView;
