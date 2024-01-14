@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_bg_login"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="323dp"
+        android:src="@drawable/img_welcome_page" />
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to BetterHer !"
+        android:textSize="44sp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_bold"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/inter"
+        android:text="Join us in fostering a world of equal opportunities and empowerment for all genders!"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/first_login_button_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/light_grey"
+        android:fontFamily="@font/inter_semibold"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/first_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log In"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="@font/inter_semibold"
+        android:layout_marginTop="-52dp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/first_signup_button_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/light_grey"
+        android:fontFamily="@font/inter_semibold"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/first_signup_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:backgroundTint="#FFEAB2"
+        android:fontFamily="@font/inter_semibold"
+        android:layout_marginTop="-52dp"
+        android:layout_gravity="center"/>
+
+
+
+</LinearLayout>

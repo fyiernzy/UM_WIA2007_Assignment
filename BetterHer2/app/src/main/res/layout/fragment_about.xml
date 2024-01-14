@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:id="@+id/title"
+        android:text="About BetterHer"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:fontFamily="sans-serif"
+        android:layout_marginStart="15dp"
+        android:text="Welcome to BetterHer, your companion for personal growth and empowerment! Created by a dedicated group of Year 2 students at the University of Malaya, BetterHer is designed to inspire and support women in their journey towards becoming the best version of themselves."
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:layout_marginTop="240dp"
+        android:layout_marginStart="15dp"
+        android:text="Goal"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:fontFamily="sans-serif"
+        android:layout_marginStart="15dp"
+        android:text="BetterHer is committed to achieving Sustainable Development Goal 5, focusing on gender equality for all. It aligns with the following targets:"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:fontFamily="@font/inter_semibold"
+        android:layout_marginStart="15dp"
+        android:text="Target 5.1"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="410dp"
+        android:fontFamily="sans-serif"
+        android:layout_marginStart="15dp"
+        android:text="End all forms of discrimination against all women and girls everywhere"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="470dp"
+        android:fontFamily="@font/inter_semibold"
+        android:layout_marginStart="15dp"
+        android:text="Target 5.2"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:fontFamily="sans-serif"
+        android:layout_marginStart="15dp"
+        android:text="Eliminate all forms of violence against all women and girls in the public and private spheres, including trafficking and sexual and other types of exploitation"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:fontFamily="@font/inter_semibold"
+        android:layout_marginStart="15dp"
+        android:text="Target 5.b"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="630dp"
+        android:fontFamily="sans-serif"
+        android:layout_marginStart="15dp"
+        android:text="Enhance the use of enabling technology, in particular information and communications technology, to promote the empowerment of women"
+        android:textSize="18sp" />
+
+</FrameLayout>
