@@ -38,10 +38,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.betterher.MainActivity;
 import com.example.betterher.R;
 import com.example.betterher.TrackCases.TrackCasesChildItem;
-import com.example.betterher.TrackCases.TrackCasesFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.Places;
@@ -64,8 +62,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class ReportFragment extends Fragment {
-
-//    MainActivity mainActivity;
     FirebaseFirestore db;
     StorageReference storageReference;
     FirebaseStorage mStorage;
@@ -98,7 +94,6 @@ public class ReportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_report, container, false);
 
-        // mainActivity = (MainActivity) getActivity();
         db = FirebaseFirestore.getInstance();
         mStorage = FirebaseStorage.getInstance();
         storageReference = mStorage.getReference();

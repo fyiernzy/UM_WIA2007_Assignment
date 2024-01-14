@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.betterher.MainActivity;
 import com.example.betterher.R;
 import com.example.betterher.TrackCases.TrackCasesFragment;
 
