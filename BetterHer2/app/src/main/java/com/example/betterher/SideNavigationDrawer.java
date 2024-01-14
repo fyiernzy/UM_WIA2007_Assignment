@@ -26,6 +26,7 @@ import com.example.betterher.Quiz.Views.QuizHomeFragment;
 import com.example.betterher.ReportCases.ReportIntroFragment;
 import com.example.betterher.TrackCases.TrackCasesFragment;
 import com.example.betterher.UrgentHelp.UrgentHelpFragment;
+import com.example.betterher.safetyhome.SafetyHomeFragment;
 import com.example.betterher.forum.ForumActivity;
 import com.example.betterher.informationhub.InformationHubFragment;
 import com.google.android.material.navigation.NavigationView;

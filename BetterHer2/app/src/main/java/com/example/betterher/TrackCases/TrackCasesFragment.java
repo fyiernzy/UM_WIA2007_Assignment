@@ -17,6 +17,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.betterher.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,6 +33,7 @@ public class TrackCasesFragment extends Fragment {
     private CollectionReference casesCollection;
     private CollectionReference progressesCollection;
     private ProgressBar progressBar;
+    private FirebaseAuth firebaseAuth;
 
     @Nullable
     @Override
@@ -43,7 +45,9 @@ public class TrackCasesFragment extends Fragment {
 
         layoutIndicators = view.findViewById(R.id.ll_indicators);
         firestore = FirebaseFirestore.getInstance();
-        casesCollection = firestore.collection("Users").document("bEBpClWNtU4U0BnnB8jX").collection("Cases");
+        firebaseAuth = FirebaseAuth.getInstance();
+        String userUid = firebaseAuth.getCurrentUser().toString();
+        casesCollection = firestore.collection("Users").document(userUid).collection("Cases");
 
         parentItemList(new FirestoreCallback() {
             @Override
