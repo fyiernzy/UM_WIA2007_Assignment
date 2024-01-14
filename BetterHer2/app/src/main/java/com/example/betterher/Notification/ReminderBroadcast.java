@@ -1,4 +1,4 @@
-package com.example.myapplication_1;
+package com.example.betterher.Notification;
 
 import android.os.Build;
 import android.Manifest;

@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class RecommendationActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity.java";
     private static final String PREFS = "prefs";
     private static final String SWIPE_COUNT_KEY = "swipeCount";
     private static final String SWIPE_DATE_KEY = "swipeDate";
