@@ -68,6 +68,28 @@
         </activity>
 
         <activity
+            android:name=".NavHeaderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadProfilePicActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Authentication.ForgotPassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SideNavigationDrawer"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Authentication.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Authentication.SignUpActivity"
+            android:exported="true" />
+        <activity
             android:name=".Authentication.WelcomeActivity"
             android:exported="true" >
             <intent-filter>

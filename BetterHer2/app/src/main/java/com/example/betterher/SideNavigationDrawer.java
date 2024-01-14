@@ -15,12 +15,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.betterher.Authentication.LoginActivity;
+import com.example.betterher.GetSupport.GetSupportIntroFragment;
 import com.example.betterher.Quiz.Views.QuizHomeFragment;
+import com.example.betterher.ReportCases.ReportIntroFragment;
+import com.example.betterher.TrackCases.TrackCasesFragment;
+import com.example.betterher.UrgentHelp.UrgentHelpFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -122,6 +127,14 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserProfileFragment()).commit();
         } else if (itemId == R.id.nav_quiz) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new QuizHomeFragment()).commit();
+        } else if (itemId == R.id.dest_urgent_help) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UrgentHelpFragment()).commit();
+        } else if (itemId == R.id.dest_report) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ReportIntroFragment()).commit();
+        } else if (itemId == R.id.dest_track_cases) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TrackCasesFragment()).commit();
+        } else if (itemId == R.id.dest_get_support) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new GetSupportIntroFragment()).commit();
         } else if (itemId == R.id.nav_info_hub) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoHubFragment()).commit();
         } else if (itemId == R.id.nav_forum) {
@@ -156,6 +169,15 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
         if (userListener != null) {
             userListener.remove();
         }
+    }
+
+    // Replace Fragment method
+    public void replaceFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragment_container_view, fragment, null)
+                .addToBackStack("name")
+                .commit();
     }
 
     private void loadProfilePicture(String profilePicUrl) {
