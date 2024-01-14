@@ -8,14 +8,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.betterher.R;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class InformationHubActivity extends AppCompatActivity {
+    private static final String TAG = "InformationHubActivity";
 
     private SectionListAdapter sectionListAdapter;
     private RecyclerView rvInformationHub;
@@ -48,14 +51,19 @@ public class InformationHubActivity extends AppCompatActivity {
 
     private void loadContentFromFirestore(FirebaseFirestore db, String field, String sectionTitle, AtomicInteger pendingLoads) {
         db.collection("Content").whereEqualTo("field", field)
+                .limit(10)
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         List<SectionCard> sectionCardsList = new ArrayList<>();
-                        for (QueryDocumentSnapshot document : task.getResult()) {
+                        List<DocumentSnapshot> documents = task.getResult().getDocuments();
+                        Collections.shuffle(documents);
+
+                        for (DocumentSnapshot document : documents) {
                             Content content = document.toObject(Content.class);
                             SectionCard sectionCard = new SectionCard(content);
                             sectionCardsList.add(sectionCard);
+                            if(sectionCardsList.size() >= 4) break;
                         }
 
                         synchronized (allSections) {
@@ -70,6 +78,7 @@ public class InformationHubActivity extends AppCompatActivity {
                         }
                     } else {
                         Log.d("Firestore", "Error getting documents: ", task.getException());
+                        return;
                     }
                 });
     }

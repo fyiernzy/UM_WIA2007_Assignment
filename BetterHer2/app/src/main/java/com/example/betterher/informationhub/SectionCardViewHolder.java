@@ -17,6 +17,8 @@ public class SectionCardViewHolder extends RecyclerView.ViewHolder {
     private ImageView ivImage;
     private ImageView ivLike;
     private ImageView ivStar;
+    private View cardLabel;
+    private TextView tvLabel;
 
     SectionCardViewHolder(View itemView) {
         super(itemView);
@@ -25,6 +27,8 @@ public class SectionCardViewHolder extends RecyclerView.ViewHolder {
         ivImage = itemView.findViewById(R.id.ivImage);
         ivLike = itemView.findViewById(R.id.ivLike);
         ivStar = itemView.findViewById(R.id.ivStar);
+        cardLabel = itemView.findViewById(R.id.card_label);
+        tvLabel = cardLabel.findViewById(R.id.tvLabel);
     }
 
     static SectionCardViewHolder create(ViewGroup parent) {
@@ -41,11 +45,12 @@ public class SectionCardViewHolder extends RecyclerView.ViewHolder {
         // Use Glide or a similar library to load images from a URL or resource ID.
         Glide.with(itemView.getContext())
                 .load(content.getImageUrl()) // Assuming Content has getImageUrl() method.
-                .placeholder(R.drawable.img_1) // Optional placeholder.
+                .placeholder(R.drawable.woman) // Optional placeholder.
                 .into(ivImage);
 
         // You might want to add logic to determine which resource to use based on some conditions.
         ivLike.setImageResource(sectionCard.getLikeImageId());
         ivStar.setImageResource(sectionCard.getStarImageId());
+        tvLabel.setText(sectionCard.getType());
     }
 }

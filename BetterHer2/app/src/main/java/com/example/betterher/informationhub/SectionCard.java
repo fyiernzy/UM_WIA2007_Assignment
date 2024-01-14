@@ -69,6 +69,10 @@ public class SectionCard {
         return content.getUrl();
     }
 
+    public String getType() {
+        return content.getType();
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) return true;
