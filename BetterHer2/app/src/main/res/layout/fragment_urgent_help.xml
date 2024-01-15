@@ -10,10 +10,12 @@
         android:id="@+id/tv_urgent_help"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:layout_marginStart="40dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Urgent Help"
         android:textSize="40dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +39,7 @@
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="Are you currently in an emergency?"
         android:textSize="23sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_urgent_help" />
@@ -50,6 +53,7 @@
         android:fontFamily="@font/montserrat_regular"
         android:text="Stay calm. Call now."
         android:textSize="17sp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_urgent_help_subheading" />
 
@@ -64,6 +68,7 @@
         android:fontFamily="@font/montserrat_extra_bold"
         android:text="CALL 999"
         android:textSize="17sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

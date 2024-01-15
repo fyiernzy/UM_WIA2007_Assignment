@@ -198,7 +198,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="-63dp"
             app:backgroundTint="@color/orange"
-            android:fontFamily="@font/inter_semibold"
+            android:fontFamily="@font/montserrat_bold"
             android:text="Sign Up"
             android:textSize="16sp"
             app:cornerRadius="14dp" />

@@ -12,7 +12,7 @@
         android:layout_height="109dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center_horizontal|top"
         android:text="TEST AND QUIZZES"

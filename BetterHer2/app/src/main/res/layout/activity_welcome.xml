@@ -47,7 +47,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/rounded_corner"
         app:backgroundTint="@color/orange"
-        android:fontFamily="@font/inter_semibold"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Log In"
         style="@style/PinkButton"
         android:textColor="@color/white"
@@ -63,7 +63,7 @@
         android:textColor="@color/black"
         android:background="@drawable/rounded_corner"
         app:backgroundTint="#FFEAB2"
-        android:fontFamily="@font/inter_semibold"
+        android:fontFamily="@font/montserrat_bold"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
 
