@@ -1,12 +1,15 @@
 package com.example.betterher.card;
 
-import android.content.Intent;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 
 import com.example.betterher.R;
@@ -26,7 +29,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class RecommendationActivity extends AppCompatActivity {
+public class RecommendationFragment extends Fragment {
     private static final String TAG = "MainActivity.java";
     private static final String PREFS = "prefs";
     private static final String SWIPE_COUNT_KEY = "swipeCount";
@@ -35,21 +38,25 @@ public class RecommendationActivity extends AppCompatActivity {
     private boolean isLimitCardDisplayed = false;
 
     private CardStackListAdapter adapter;
-    private CardStackView cardStackView;
     private CardStackLayoutManager manager;
     private SharedPreferences prefs;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_recommendation, container, false);
 
-        prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+        Context context = view.getContext();
+        prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
 
-        this.cardStackView = findViewById(R.id.cardStackView);
-        this.manager = new CardStackLayoutManager(this, new CardStackListener() {
+
+        checkSwipeLimitAndRedirect();
+
+        CardStackView cardStackView = view.findViewById(R.id.cardStackView);
+
+        this.manager = new CardStackLayoutManager(context, new CardStackListener() {
             @Override
-            public void onCardDragging(Direction direction, float ratio) { }
+            public void onCardDragging(Direction direction, float ratio) {
+            }
 
             @Override
             public void onCardSwiped(Direction direction) {
@@ -68,38 +75,40 @@ public class RecommendationActivity extends AppCompatActivity {
                 String todayDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
                 if (!todayDate.equals(lastSwipeDate)) {
-                    // If it's a new day, reset the swipe count and set the new date
                     prefs.edit()
                             .putInt(SWIPE_COUNT_KEY, 1)
                             .putString(SWIPE_DATE_KEY, todayDate)
                             .apply();
-                } else if (swipeCount < MAX_SWIPES_PER_DAY) {
-                    // Increment the swipe count for the day
-                    prefs.edit().putInt(SWIPE_COUNT_KEY, swipeCount + 1).apply();
                 } else {
-                    // Max swipes reached for the day
-                    showLimitCard();
-                    return;
+                    prefs.edit().putInt(SWIPE_COUNT_KEY, swipeCount + 1).apply();
+                    if (swipeCount + 1 >= MAX_SWIPES_PER_DAY) {
+                        redirectToInformationHub();
+                        return;
+                    }
                 }
 
                 // Paginating - only proceed here if the limit card is not shown
-                if (manager.getTopPosition() == adapter.getItemCount() - 5){
+                if (manager.getTopPosition() == adapter.getItemCount() - 5) {
                     paginate();
                 }
             }
 
 
             @Override
-            public void onCardRewound() { }
+            public void onCardRewound() {
+            }
 
             @Override
-            public void onCardCanceled() { }
+            public void onCardCanceled() {
+            }
 
             @Override
-            public void onCardAppeared(View view, int position) { }
+            public void onCardAppeared(View view, int position) {
+            }
 
             @Override
-            public void onCardDisappeared(View view, int position) { }
+            public void onCardDisappeared(View view, int position) {
+            }
         });
 
         cardStackView.setLayoutManager(manager);
@@ -110,6 +119,13 @@ public class RecommendationActivity extends AppCompatActivity {
 
         // Fetch data from Firestore and set up the adapter
         paginate();
+        return view;
+    }
+
+    private void clearSharedPreferences() {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear(); // This will clear all the data in SharedPreferences
+        editor.apply();
     }
 
     private void showLimitCard() {
@@ -129,8 +145,22 @@ public class RecommendationActivity extends AppCompatActivity {
 
 
     private void redirectToInformationHub() {
-        Intent intent = new Intent(this, InformationHubFragment.class);
-        startActivity(intent);
+        // Create a new instance of InformationHubFragment
+        InformationHubFragment informationHubFragment = new InformationHubFragment();
+
+        // Begin a FragmentTransaction
+        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+
+        // Replace the contents of the container with the new fragment
+        // R.id.fragment_container is the ID of your FragmentContainerView in activity_main.xml
+        transaction.replace(R.id.fragment_container, informationHubFragment);
+
+        // Optionally, add the transaction to the back stack
+        // This means pressing back button will navigate back to the previous fragment
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
     }
 
     private void updateCardStack(List<Content> newContentList) {
@@ -172,6 +202,16 @@ public class RecommendationActivity extends AppCompatActivity {
         List<Content> updatedList = new ArrayList<>(currentList);
         updatedList.add(endContent);
         adapter.submitList(updatedList);
+    }
+
+    private void checkSwipeLimitAndRedirect() {
+        int swipeCount = prefs.getInt(SWIPE_COUNT_KEY, 0);
+        String lastSwipeDate = prefs.getString(SWIPE_DATE_KEY, "");
+        String todayDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
+        if (todayDate.equals(lastSwipeDate) && swipeCount >= MAX_SWIPES_PER_DAY) {
+            redirectToInformationHub();
+        }
     }
 
 }

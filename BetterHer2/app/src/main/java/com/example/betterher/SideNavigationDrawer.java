@@ -24,6 +24,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.example.betterher.Authentication.LoginActivity;
 import com.example.betterher.Notification.NotificationFragment;
 import com.example.betterher.Quiz.Views.QuizHomeFragment;
+import com.example.betterher.card.RecommendationFragment;
 import com.example.betterher.forum.ForumFragment;
 import com.example.betterher.informationhub.InformationHubFragment;
 import com.example.betterher.safetyhome.SafetyHomeFragment;
@@ -153,6 +154,7 @@ public class SideNavigationDrawer extends AppCompatActivity implements Navigatio
             fragmentMap.put(R.id.nav_settings, SettingsFragment.class);
             fragmentMap.put(R.id.nav_about, AboutFragment.class);
             fragmentMap.put(R.id.nav_notification, NotificationFragment.class);
+            fragmentMap.put(R.id.nav_recommendation, RecommendationFragment.class);
         }
     }
 
