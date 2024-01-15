@@ -20,9 +20,9 @@ public class ReminderBroadcast extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "notifyBetterHer")
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setContentTitle("BetterHer UPDATE:")
-                .setContentText("- New Video on 'Women Empowerment' by Harper BAZAAR is released! Have A Look!")
+                .setContentText("- New Video on 'A Passionate, personal case for protection' by Michelle Obama is released! Have A Look!")
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("- New Video on 'Women Empowerment' by Harper BAZAAR is released! Have A Look!"))
+                        .bigText("- New Video on 'A Passionate, personal case for protection' by Michelle Obama is released! Have A Look!"))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         // Get NotificationManagerCompat instance
